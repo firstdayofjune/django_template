@@ -1,0 +1,15 @@
+#!/bin/bash
+changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
+
+# Check if $1 is in the git changelog and run $2
+if_changed_run() {
+	echo "$changed_files" | grep --quiet "$1" && eval "$2"
+}
+
+source $DJANGO_VENV_DIR/bin/activate
+cd $DJANGO_PROJECT_DIR
+
+if_changed_run requirements/build/prod.txt "pip install -r requirements/build/prod.txt"
+if_changed_run /migrations/ "./manage.py migrate"
+
+echo yes | ./manage.py collectstatic

@@ -1,0 +1,25 @@
+from {{ project_name }}.settings.base import *
+
+STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR + '/staticfiles'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR + '/mediafiles'
+
+DATABASES = {
+	'default': {
+		'ENGINE': 'django.db.backends.sqlite3',
+		'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+	}
+}
+
+INSTALLED_APPS += [
+	'debug_toolbar',
+]
+
+MIDDLEWARE = [
+	'debug_toolbar.middleware.DebugToolbarMiddleware',
+] + MIDDLEWARE
+
+# Internal IP is needed for the debug toolbar to show
+INTERNAL_IPS = '127.0.0.1'
