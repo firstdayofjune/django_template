@@ -23,5 +23,4 @@ After the project was created, cd into the directory and run:
 $ invoke init
 ```
 
-This will install the necessary python requirements, apply the initial migrations and also initialize an empty git repository.
-I would recommend to run this command inside the virtual environment/machine you are using for development, as this will already install some pip-packages (if you have one, otherwise I would strongly advise to set one up :wink:).
+This will create a virtual environment, install the necessary python requirements, apply the initial migrations and also initialize an empty git repository. The virtual environment and the python requirements will be handled using pipenv (and a pipfile). For more information on pipenv check the [pipenv github page](https://github.com/pypa/pipenv). _Note: If you prefer managing your requirements yourself you may checkout version 0.1 which was using pip-tools for the requirement-handling._
