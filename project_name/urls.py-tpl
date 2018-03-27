@@ -21,7 +21,7 @@ from django.urls import path, include
 urlpatterns = [
 	path('admin/', admin.site.urls),
 	# Enable when building an api-service
-	# path('api/', include('{{project_name}}.urls_api')),
+	# path('api/', include(('{{project_name}}.urls_api', 'api'), namespace=None)),
 ]
 
 

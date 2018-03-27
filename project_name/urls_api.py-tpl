@@ -1,5 +1,10 @@
 from django.urls import path, include
 
 
+v1_urls = [
+	# path('url/', include(('app_name.api.urls', 'app_name'), namespace=None)),
+]
+
 urlpatterns = [
+	# path('v1/', include((v1_urls, 'v1'), namespace=None)),
 ]
